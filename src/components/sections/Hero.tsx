@@ -11,8 +11,8 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden pt-[104px] pb-12 lg:pt-[120px] lg:pb-20">
-      <div className="container-x">
+    <section className="relative overflow-hidden pt-6 pb-12 lg:pt-8 lg:pb-20">
+      <div className="mx-auto w-full max-w-[1900px] px-3 sm:px-4 lg:px-6">
         {/* Signature rounded poster — Arkdin-style with floating tech PNG on right */}
         <div className="relative overflow-hidden rounded-[40px] bg-brand-charcoal text-brand-cream min-h-[86vh]">
           {/* Full-bleed hero background */}
