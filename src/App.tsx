@@ -9,10 +9,12 @@ import { StickyNav } from "@/components/sections/StickyNav";
 import { CookieConsent } from "@/components/CookieConsent";
 import { Chatbot } from "@/components/Chatbot";
 import { FloatingQuote } from "@/components/FloatingQuote";
+import { ScrollManager } from "@/components/ScrollManager";
 
 export default function App() {
   return (
     <>
+      <ScrollManager />
       <UtilityBar />
       <DealsMarquee />
       <StickyNav />
