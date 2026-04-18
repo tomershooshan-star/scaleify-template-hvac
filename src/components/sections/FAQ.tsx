@@ -11,7 +11,7 @@ export function FAQ() {
           <div className="lg:sticky lg:top-28 lg:self-start">
             <span className="eyebrow">FAQ</span>
             <h2 className="display-xl mt-5 text-brand-charcoal">
-              Questions? <em className="italic text-brand-orange">Answered</em>.
+              Questions? <span className="text-brand-orange font-extrabold">Answered</span>.
             </h2>
             <p className="mt-5 max-w-sm font-sans text-[17px] leading-relaxed text-brand-charcoal/55">
               Still have a question? Call us directly — a real person answers, 24/7.

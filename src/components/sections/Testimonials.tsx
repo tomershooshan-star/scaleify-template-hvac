@@ -56,7 +56,7 @@ export function Testimonials() {
               Reviews
             </span>
             <h2 className="display-xl mt-4 text-brand-cream">
-              Our clients' <em className="italic text-brand-orange">feedback</em>.
+              Our clients' <span className="text-brand-orange font-extrabold">feedback</span>.
             </h2>
             <p className="mt-6 max-w-md font-sans text-[16.5px] leading-relaxed text-brand-cream/65">
               {testimonials.length}+ five-star reviews across Google, Yelp, and

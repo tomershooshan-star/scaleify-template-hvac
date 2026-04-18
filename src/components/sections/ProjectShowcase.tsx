@@ -19,7 +19,7 @@ export function ProjectShowcase() {
           <div>
             <span className="eyebrow">Our Work</span>
             <h2 className="display-xl mt-5 text-brand-charcoal">
-              Recent <em className="italic text-brand-orange">projects</em>.
+              Recent <span className="text-brand-orange font-extrabold">projects</span>.
             </h2>
           </div>
           <p className="max-w-md font-sans text-[16px] leading-relaxed text-brand-charcoal/55 lg:justify-self-end lg:text-right">

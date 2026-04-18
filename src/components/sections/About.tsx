@@ -80,7 +80,7 @@ export function About() {
             </span>
             <h2 className="display-xl mt-4 text-brand-charcoal">
               Where every breath feels{" "}
-              <em className="italic text-brand-orange">fresh and cool</em>.
+              <span className="text-brand-orange font-extrabold">fresh and cool</span>.
             </h2>
             <p className="mt-6 max-w-lg font-sans text-[17px] leading-relaxed text-brand-charcoal/60">
               Prompt diagnosis and repair of any issue with your HVAC system for

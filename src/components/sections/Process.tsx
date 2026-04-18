@@ -7,7 +7,7 @@ export function Process() {
         <div className="mx-auto max-w-3xl text-center">
           <span className="eyebrow">How It Works</span>
           <h2 className="display-xl mt-5 text-brand-charcoal">
-            Book a service in <em className="italic text-brand-orange">four</em> steps.
+            Book a service in <span className="text-brand-orange font-extrabold">four</span> steps.
           </h2>
         </div>
 

@@ -10,10 +10,12 @@ import { CookieConsent } from "@/components/CookieConsent";
 import { Chatbot } from "@/components/Chatbot";
 import { FloatingQuote } from "@/components/FloatingQuote";
 import { ScrollManager } from "@/components/ScrollManager";
+import { Preloader } from "@/components/Preloader";
 
 export default function App() {
   return (
     <>
+      <Preloader />
       <ScrollManager />
       <UtilityBar />
       <DealsMarquee />

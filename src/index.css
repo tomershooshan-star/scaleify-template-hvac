@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -35,7 +35,7 @@
   body {
     @apply bg-brand-cream text-brand-charcoal font-sans antialiased;
   }
-  h1, h2, h3 { @apply font-display font-normal tracking-tightest; }
+  h1, h2, h3 { @apply font-display font-bold tracking-tightest; }
   h4, h5, h6 { @apply font-grotesk font-semibold tracking-tight; }
   ::selection { background: #FF5A1F; color: #FAF6F0; }
 }
@@ -66,19 +66,19 @@
   }
 
   .display-hero {
-    @apply font-display leading-[0.95];
-    font-size: clamp(3.25rem, 8.5vw, 7.5rem);
+    @apply font-display font-extrabold leading-[1.02];
+    font-size: clamp(3rem, 7.5vw, 6.5rem);
     letter-spacing: -0.035em;
   }
   .display-xl {
-    @apply font-display leading-[1.02];
-    font-size: clamp(2.5rem, 6vw, 5rem);
-    letter-spacing: -0.03em;
+    @apply font-display font-bold leading-[1.05];
+    font-size: clamp(2.25rem, 5vw, 4.25rem);
+    letter-spacing: -0.028em;
   }
   .display-lg {
-    @apply font-display leading-[1.05];
-    font-size: clamp(2rem, 4vw, 3.25rem);
-    letter-spacing: -0.025em;
+    @apply font-display font-bold leading-[1.08];
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    letter-spacing: -0.022em;
   }
 
   .section-pad { @apply py-20 sm:py-24 lg:py-28; }
@@ -89,6 +89,16 @@
   }
 
   .glow-orange {
-    box-shadow: 0 0 80px -10px rgba(255,90,31,0.35);
+    box-shadow: 0 0 80px -10px rgba(255,94,20,0.35);
+  }
+
+  /* LSI Cool-style preloader letter bounce */
+  .letter-loading {
+    animation: letterBounce 3s infinite;
+  }
+  @keyframes letterBounce {
+    0%, 75%, 100% { transform: translate3d(0, 0, 0); opacity: 1; }
+    25% { transform: translate3d(0, 40px, 0); opacity: 0.3; }
+    50% { transform: translate3d(0, -14px, 0); opacity: 0.8; }
   }
 }

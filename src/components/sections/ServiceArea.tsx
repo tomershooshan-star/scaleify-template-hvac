@@ -8,7 +8,7 @@ export function ServiceArea() {
         <div className="mx-auto max-w-3xl text-center">
           <span className="eyebrow">Service Area</span>
           <h2 className="display-lg mt-5 text-brand-charcoal">
-            Where we <em className="italic text-brand-orange">work</em>.
+            Where we <span className="text-brand-orange font-extrabold">work</span>.
           </h2>
           <p className="mt-4 font-sans text-base text-brand-charcoal/55">
             Based in {site.address.split(",").slice(-2).join(",").trim()}, serving the greater metro area.

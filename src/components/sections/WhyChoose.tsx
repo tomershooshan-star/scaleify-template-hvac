@@ -44,7 +44,7 @@ export function WhyChoose() {
             </span>
             <h2 className="display-xl mt-4 text-brand-cream">
               Relax — we've got your{" "}
-              <em className="italic text-brand-orange">air climate</em> covered.
+              <span className="text-brand-orange font-extrabold">air climate</span> covered.
             </h2>
             <p className="mt-6 max-w-md font-sans text-[16.5px] leading-relaxed text-brand-cream/65">
               Four non-negotiables that make BrightAir the last HVAC company

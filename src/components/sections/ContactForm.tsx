@@ -52,7 +52,7 @@ export function ContactForm() {
                 Get Started
               </span>
               <h2 className="mt-4 font-display leading-[0.98] text-white" style={{ fontSize: "clamp(2.5rem, 5.5vw, 4.5rem)" }}>
-                Your comfort's <em className="italic">one call</em> away.
+                Your comfort's <span className="text-brand-orange font-extrabold">one call</span> away.
               </h2>
             </div>
             <div className="flex flex-col gap-3 lg:items-end">
@@ -77,7 +77,7 @@ export function ContactForm() {
           <div>
             <span className="eyebrow">Get In Touch</span>
             <h3 className="display-lg mt-5 text-brand-charcoal">
-              Request a <em className="italic text-brand-orange">free estimate</em>.
+              Request a <span className="text-brand-orange font-extrabold">free estimate</span>.
             </h3>
             <p className="mt-5 max-w-md font-sans text-[17px] leading-relaxed text-brand-charcoal/55">
               Tell us what's going on — we'll text you back within 15 minutes during business hours.

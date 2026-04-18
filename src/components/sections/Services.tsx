@@ -1,14 +1,6 @@
-import { useState } from "react";
 import { services } from "@/config/site";
 import {
-  Snowflake,
-  Flame,
-  Wind,
-  Wrench,
-  Gauge,
-  Leaf,
-  ArrowRight,
-  type LucideIcon,
+  Snowflake, Flame, Wind, Wrench, Gauge, Leaf, ArrowRight, type LucideIcon,
 } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
 
@@ -16,51 +8,41 @@ const iconMap: Record<string, LucideIcon> = {
   Snowflake, Flame, Wind, Wrench, Gauge, Leaf,
 };
 
-const OCTAGON_CLIP =
-  "polygon(14% 0, 86% 0, 100% 14%, 100% 86%, 86% 100%, 14% 100%, 0 86%, 0 14%)";
-
 export function Services() {
-  const [activeIdx, setActiveIdx] = useState(0);
-
   return (
-    <section
-      id="services"
-      className="section-pad"
-      style={{
-        background:
-          "linear-gradient(180deg, #FFF4EB 0%, #FAF6F0 60%, #FAF6F0 100%)",
-      }}
-    >
+    <section id="services" className="section-pad bg-brand-cream">
       <div className="container-x">
-        <div className="mx-auto max-w-3xl text-center">
-          <span className="eyebrow eyebrow-dot text-brand-orange">
-            Our Services
-          </span>
-          <h2 className="display-xl mt-5 text-brand-charcoal">
-            Breathe Easy{" "}
-            <em className="italic text-brand-orange">Assessment</em>.
-          </h2>
-          <p className="mx-auto mt-6 max-w-xl font-sans text-[17px] leading-relaxed text-brand-charcoal/55">
-            Six core services covering every HVAC need — residential, commercial,
-            emergency, and everything in between.
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.2fr] lg:items-end lg:gap-16">
+          <div>
+            <span className="eyebrow eyebrow-dot text-brand-orange">
+              Services
+            </span>
+            <h2 className="display-xl mt-5 text-brand-charcoal">
+              Climate control,
+              <br />
+              done right.
+            </h2>
+          </div>
+          <p className="max-w-lg font-sans text-[16px] leading-relaxed text-brand-charcoal/55 lg:justify-self-end lg:text-right">
+            Six core services covering every residential and commercial HVAC
+            need. Every quote flat-rate and in writing. Every install code-passed.
           </p>
         </div>
 
-        <div className="mx-auto mt-14 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7">
+        {/* Vertical stacked list of horizontal service rows */}
+        <div className="mt-14 overflow-hidden rounded-2xl border border-brand-charcoal/10 bg-brand-paper shadow-[0_20px_60px_-30px_rgba(5,14,26,0.18)]">
           {services.slice(0, 6).map((s, i) => {
             const Icon = iconMap[s.icon] ?? Wrench;
-            const active = i === activeIdx;
             const num = String(i + 1).padStart(2, "0");
             return (
-              <OctagonCard
+              <ServiceRow
                 key={s.title}
                 num={num}
                 title={s.title}
                 desc={s.desc}
-                Icon={Icon}
-                active={active}
+                icon={Icon}
+                isLast={i === services.length - 1}
                 index={i}
-                onHover={() => setActiveIdx(i)}
               />
             );
           })}
@@ -70,108 +52,60 @@ export function Services() {
   );
 }
 
-function OctagonCard({
-  num,
-  title,
-  desc,
-  Icon,
-  active,
-  index,
-  onHover,
+function ServiceRow({
+  num, title, desc, icon: Icon, isLast, index,
 }: {
   num: string;
   title: string;
   desc: string;
-  Icon: LucideIcon;
-  active: boolean;
+  icon: LucideIcon;
+  isLast: boolean;
   index: number;
-  onHover: () => void;
 }) {
-  const { ref, inView } = useReveal<HTMLDivElement>(0.15);
-
+  const { ref, inView } = useReveal<HTMLAnchorElement>(0.12);
   return (
-    <div
+    <a
       ref={ref}
-      onMouseEnter={onHover}
-      className="group relative transition-all duration-500"
+      href="#contact"
+      className={`group relative grid items-center gap-6 px-6 py-6 transition-all hover:bg-brand-ice/40 sm:grid-cols-[auto_auto_1fr_auto_auto] sm:gap-8 sm:px-10 sm:py-8 ${
+        isLast ? "" : "border-b border-brand-charcoal/10"
+      }`}
       style={{
         opacity: inView ? 1 : 0,
-        transform: inView ? "translateY(0)" : "translateY(30px)",
-        transitionDelay: `${index * 80}ms`,
+        transform: inView ? "translateY(0)" : "translateY(20px)",
+        transition: "opacity 0.6s ease-out, transform 0.6s ease-out, background-color 0.2s",
+        transitionDelay: `${index * 60}ms`,
       }}
     >
-      {/* Octagon card body */}
-      <div className="relative aspect-[1/1.02] transition-transform duration-300">
-        {/* Outer colored border layer */}
-        <div
-          className={`absolute inset-0 transition-colors duration-300 ${
-            active ? "bg-brand-orange" : "bg-brand-charcoal/10"
-          }`}
-          style={{ clipPath: OCTAGON_CLIP }}
-        />
-        {/* Inner white fill */}
-        <div
-          className="absolute inset-[1.5px] bg-brand-paper shadow-[0_10px_30px_-14px_rgba(14,17,22,0.15)]"
-          style={{ clipPath: OCTAGON_CLIP }}
-        />
-
-        {/* Orange half-moon top crown — always rendered, opacity-animated to avoid mount/unmount blink */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute left-1/2 top-0 h-[28%] w-[38%] -translate-x-1/2 bg-brand-orange transition-opacity duration-300"
-          style={{
-            clipPath: "polygon(0 0, 100% 0, 86% 100%, 14% 100%)",
-            borderRadius: "0 0 9999px 9999px",
-            opacity: active ? 1 : 0,
-          }}
-        />
-
-        {/* Card content */}
-        <div className="absolute inset-0 flex flex-col items-center px-5 pt-7 pb-7 text-center lg:px-6">
-          {/* Number */}
-          <div
-            className={`font-display text-[40px] font-normal leading-none transition-colors duration-300 ${
-              active
-                ? "text-brand-cream"
-                : "text-transparent [-webkit-text-stroke:1.5px_rgba(14,17,22,0.22)]"
-            }`}
-          >
-            {num}
-          </div>
-
-          {/* Title */}
-          <h3 className="mt-3.5 font-display text-[17px] font-normal leading-tight text-brand-charcoal">
-            {title}
-          </h3>
-
-          {/* Desc */}
-          <p className="mt-2 line-clamp-2 max-w-[16ch] font-sans text-[11.5px] leading-relaxed text-brand-charcoal/55">
-            {desc}
-          </p>
-
-          {/* Read more */}
-          <a
-            href="#contact"
-            className="mt-3 inline-flex items-center gap-1 font-grotesk text-[9.5px] font-bold uppercase tracking-[0.16em] text-brand-charcoal transition hover:text-brand-orange"
-          >
-            Read More
-            <ArrowRight className="h-2.5 w-2.5" />
-          </a>
-        </div>
+      {/* Left: number */}
+      <div className="font-display text-2xl font-bold text-brand-steel/45 group-hover:text-brand-orange sm:text-[28px]">
+        {num}
       </div>
 
-      {/* Icon medallion dangling below the card */}
-      <div className="relative mx-auto -mt-7 flex h-14 w-14 items-center justify-center">
-        <div
-          className={`flex h-11 w-11 items-center justify-center rounded-full transition-colors duration-300 ${
-            active
-              ? "bg-brand-orange text-brand-cream shadow-[0_10px_22px_-8px_rgba(255,90,31,0.6)]"
-              : "bg-brand-paper text-brand-charcoal shadow-[0_4px_16px_-6px_rgba(14,17,22,0.18)]"
-          }`}
-        >
-          <Icon className="h-5 w-5" strokeWidth={1.8} />
-        </div>
+      {/* Icon chip */}
+      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-ice text-brand-charcoal transition group-hover:bg-brand-orange group-hover:text-white sm:h-14 sm:w-14">
+        <Icon className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={2} />
       </div>
-    </div>
+
+      {/* Title + desc */}
+      <div className="min-w-0">
+        <h3 className="font-display text-[19px] font-bold leading-tight text-brand-charcoal sm:text-[22px]">
+          {title}
+        </h3>
+        <p className="mt-1 font-sans text-[13.5px] leading-relaxed text-brand-charcoal/55 sm:text-[14.5px]">
+          {desc}
+        </p>
+      </div>
+
+      {/* Tag */}
+      <div className="hidden rounded-full border border-brand-charcoal/10 bg-brand-cream px-3 py-1 font-grotesk text-[10px] font-bold uppercase tracking-[0.16em] text-brand-charcoal/60 md:inline-flex">
+        Residential · Commercial
+      </div>
+
+      {/* Arrow */}
+      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-brand-charcoal/15 text-brand-charcoal transition group-hover:border-brand-orange group-hover:bg-brand-orange group-hover:text-white">
+        <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+      </div>
+    </a>
   );
 }

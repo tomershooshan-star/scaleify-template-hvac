@@ -36,7 +36,7 @@ export function SeasonalOffers() {
               Current Offers
             </span>
             <h2 className="display-xl mt-5 text-brand-cream">
-              This season's <em className="italic text-brand-orange">deals</em>.
+              This season's <span className="text-brand-orange font-extrabold">deals</span>.
             </h2>
             <p className="mx-auto mt-5 max-w-xl font-sans text-base leading-relaxed text-brand-cream/60">
               Active promotions — redeem before they end. All quotes in writing, no hidden fees.

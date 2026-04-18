@@ -53,7 +53,7 @@ export function CtaBand() {
               </span>
               <h2 className="display-xl mt-4 text-brand-cream">
                 Your comfort,{" "}
-                <em className="italic text-brand-orange">one call</em> away.
+                <span className="text-brand-orange font-extrabold">one call</span> away.
               </h2>
               <p className="mt-5 max-w-lg font-sans text-[16.5px] leading-relaxed text-brand-cream/70">
                 Whether it's a broken AC on a 100° day or a routine tune-up,
