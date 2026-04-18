@@ -12,15 +12,11 @@ export function WhyChoose() {
       {/* Full-bleed background image */}
       <div className="absolute inset-0">
         <img
-          src="/images/why/why_chose_us_bg_1.jpg"
+          src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=2400&q=85"
           alt=""
           aria-hidden
           className="h-full w-full object-cover"
           loading="lazy"
-          onError={(e) => {
-            (e.currentTarget as HTMLImageElement).src =
-              "https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=2400&q=85";
-          }}
         />
         {/* Dark charcoal gradient overlay */}
         <div

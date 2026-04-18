@@ -85,7 +85,7 @@ export function ContactForm() {
 
             <div className="relative mt-8 aspect-[5/3] w-full overflow-hidden rounded-2xl">
               <img
-                src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1200&q=85"
+                src="https://images.unsplash.com/photo-1581578017093-cd30fce4eeb7?auto=format&fit=crop&w=1200&q=85"
                 alt=""
                 className="h-full w-full object-cover"
                 loading="lazy"

@@ -54,13 +54,13 @@ export function About() {
           >
             <div className="relative overflow-hidden rounded-3xl">
               <img
-                src="/images/about/about_img_1.png"
-                alt="HVAC technician"
+                src="https://images.unsplash.com/photo-1631545308456-68ebe3e34d3a?auto=format&fit=crop&w=1000&q=85"
+                alt="HVAC technician servicing an outdoor unit"
                 className="h-auto w-full object-cover"
                 loading="lazy"
                 onError={(e) => {
                   (e.currentTarget as HTMLImageElement).src =
-                    "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=85";
+                    "https://images.unsplash.com/photo-1581578017093-cd30fce4eeb7?auto=format&fit=crop&w=1000&q=85";
                 }}
               />
               <button

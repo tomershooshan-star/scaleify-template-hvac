@@ -17,7 +17,7 @@ const iconMap: Record<string, LucideIcon> = {
 };
 
 const OCTAGON_CLIP =
-  "polygon(22% 0, 78% 0, 100% 22%, 100% 78%, 78% 100%, 22% 100%, 0 78%, 0 22%)";
+  "polygon(14% 0, 86% 0, 100% 14%, 100% 86%, 86% 100%, 14% 100%, 0 86%, 0 14%)";
 
 export function Services() {
   const [activeIdx, setActiveIdx] = useState(0);
@@ -46,7 +46,7 @@ export function Services() {
           </p>
         </div>
 
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10">
+        <div className="mx-auto mt-14 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7">
           {services.slice(0, 6).map((s, i) => {
             const Icon = iconMap[s.icon] ?? Wrench;
             const active = i === activeIdx;
@@ -101,80 +101,75 @@ function OctagonCard({
       }}
     >
       {/* Octagon card body */}
-      <div
-        className={`relative aspect-[1/1.05] transition-all duration-500 ${
-          active ? "scale-[1.02]" : ""
-        }`}
-      >
+      <div className="relative aspect-[1/1.02] transition-transform duration-300">
         {/* Outer colored border layer */}
         <div
-          className={`absolute inset-0 transition-all duration-500 ${
+          className={`absolute inset-0 transition-colors duration-300 ${
             active ? "bg-brand-orange" : "bg-brand-charcoal/10"
           }`}
           style={{ clipPath: OCTAGON_CLIP }}
         />
         {/* Inner white fill */}
         <div
-          className="absolute inset-[2px] bg-brand-paper shadow-[0_14px_40px_-18px_rgba(14,17,22,0.15)]"
+          className="absolute inset-[1.5px] bg-brand-paper shadow-[0_10px_30px_-14px_rgba(14,17,22,0.15)]"
           style={{ clipPath: OCTAGON_CLIP }}
         />
 
-        {/* Orange half-moon top crown (active only) */}
-        {active && (
-          <div
-            aria-hidden
-            className="absolute left-1/2 top-0 h-[32%] w-[42%] -translate-x-1/2 bg-brand-orange"
-            style={{
-              clipPath: "polygon(0 0, 100% 0, 88% 100%, 12% 100%)",
-              borderRadius: "0 0 9999px 9999px",
-            }}
-          />
-        )}
+        {/* Orange half-moon top crown — always rendered, opacity-animated to avoid mount/unmount blink */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-0 h-[28%] w-[38%] -translate-x-1/2 bg-brand-orange transition-opacity duration-300"
+          style={{
+            clipPath: "polygon(0 0, 100% 0, 86% 100%, 14% 100%)",
+            borderRadius: "0 0 9999px 9999px",
+            opacity: active ? 1 : 0,
+          }}
+        />
 
         {/* Card content */}
-        <div className="absolute inset-0 flex flex-col items-center px-8 pt-10 pb-10 text-center lg:px-10">
+        <div className="absolute inset-0 flex flex-col items-center px-5 pt-7 pb-7 text-center lg:px-6">
           {/* Number */}
           <div
-            className={`font-display text-[54px] font-normal leading-none transition ${
+            className={`font-display text-[40px] font-normal leading-none transition-colors duration-300 ${
               active
                 ? "text-brand-cream"
-                : "text-transparent [-webkit-text-stroke:1.5px_rgba(14,17,22,0.20)]"
+                : "text-transparent [-webkit-text-stroke:1.5px_rgba(14,17,22,0.22)]"
             }`}
           >
             {num}
           </div>
 
           {/* Title */}
-          <h3 className="mt-5 font-display text-[22px] font-normal leading-tight text-brand-charcoal">
+          <h3 className="mt-3.5 font-display text-[17px] font-normal leading-tight text-brand-charcoal">
             {title}
           </h3>
 
           {/* Desc */}
-          <p className="mt-3 line-clamp-2 max-w-[18ch] font-sans text-[13.5px] leading-relaxed text-brand-charcoal/55">
+          <p className="mt-2 line-clamp-2 max-w-[16ch] font-sans text-[11.5px] leading-relaxed text-brand-charcoal/55">
             {desc}
           </p>
 
           {/* Read more */}
           <a
             href="#contact"
-            className="mt-4 inline-flex items-center gap-1.5 font-grotesk text-[11px] font-bold uppercase tracking-[0.18em] text-brand-charcoal transition hover:text-brand-orange"
+            className="mt-3 inline-flex items-center gap-1 font-grotesk text-[9.5px] font-bold uppercase tracking-[0.16em] text-brand-charcoal transition hover:text-brand-orange"
           >
             Read More
-            <ArrowRight className="h-3 w-3" />
+            <ArrowRight className="h-2.5 w-2.5" />
           </a>
         </div>
       </div>
 
       {/* Icon medallion dangling below the card */}
-      <div className="relative mx-auto -mt-10 flex h-20 w-20 items-center justify-center">
+      <div className="relative mx-auto -mt-7 flex h-14 w-14 items-center justify-center">
         <div
-          className={`flex h-16 w-16 items-center justify-center rounded-full transition-all duration-500 ${
+          className={`flex h-11 w-11 items-center justify-center rounded-full transition-colors duration-300 ${
             active
-              ? "bg-brand-orange text-brand-cream shadow-[0_14px_30px_-10px_rgba(255,90,31,0.6)]"
-              : "bg-brand-paper text-brand-charcoal shadow-[0_6px_22px_-8px_rgba(14,17,22,0.20)]"
+              ? "bg-brand-orange text-brand-cream shadow-[0_10px_22px_-8px_rgba(255,90,31,0.6)]"
+              : "bg-brand-paper text-brand-charcoal shadow-[0_4px_16px_-6px_rgba(14,17,22,0.18)]"
           }`}
         >
-          <Icon className="h-7 w-7" strokeWidth={1.7} />
+          <Icon className="h-5 w-5" strokeWidth={1.8} />
         </div>
       </div>
     </div>
