@@ -1,6 +1,7 @@
 import { DealsMarquee } from "@/components/sections/DealsMarquee";
 import { UtilityBar } from "@/components/UtilityBar";
 import { Hero } from "@/components/sections/Hero";
+import { About } from "@/components/sections/About";
 import { Services } from "@/components/sections/Services";
 import { ProjectShowcase } from "@/components/sections/ProjectShowcase";
 import { SeasonalOffers } from "@/components/sections/SeasonalOffers";
@@ -8,6 +9,7 @@ import { WhyChoose } from "@/components/sections/WhyChoose";
 import { Process } from "@/components/sections/Process";
 import { Stats } from "@/components/sections/Stats";
 import { Testimonials } from "@/components/sections/Testimonials";
+import { CtaBand } from "@/components/sections/CtaBand";
 import { FAQ } from "@/components/sections/FAQ";
 import { ServiceArea } from "@/components/sections/ServiceArea";
 import { ContactForm } from "@/components/sections/ContactForm";
@@ -22,6 +24,7 @@ export default function Home() {
       <DealsMarquee />
       <main>
         <Hero />
+        <About />
         <Services />
         <ProjectShowcase />
         <SeasonalOffers />
@@ -29,6 +32,7 @@ export default function Home() {
         <Process />
         <Stats />
         <Testimonials />
+        <CtaBand />
         <FAQ />
         <ServiceArea />
         <ContactForm />
