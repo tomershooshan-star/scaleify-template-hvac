@@ -1,6 +1,8 @@
 import { Hero } from "@/components/sections/Hero";
+import { Features } from "@/components/sections/Features";
 import { About } from "@/components/sections/About";
 import { Services } from "@/components/sections/Services";
+import { TextSlider } from "@/components/sections/TextSlider";
 import { ProjectShowcase } from "@/components/sections/ProjectShowcase";
 import { SeasonalOffers } from "@/components/sections/SeasonalOffers";
 import { WhyChoose } from "@/components/sections/WhyChoose";
@@ -20,8 +22,10 @@ export default function Home() {
       <SEO path="/" jsonLd={localBusinessJsonLd()} />
       <main>
         <Hero />
+        <Features />
         <About />
         <Services />
+        <TextSlider />
         <ProjectShowcase />
         <SeasonalOffers />
         <WhyChoose />
