@@ -2,6 +2,7 @@ import { DealsMarquee } from "@/components/sections/DealsMarquee";
 import { UtilityBar } from "@/components/UtilityBar";
 import { Hero } from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
+import { ProjectShowcase } from "@/components/sections/ProjectShowcase";
 import { SeasonalOffers } from "@/components/sections/SeasonalOffers";
 import { WhyChoose } from "@/components/sections/WhyChoose";
 import { Process } from "@/components/sections/Process";
@@ -22,6 +23,7 @@ export default function Home() {
       <main>
         <Hero />
         <Services />
+        <ProjectShowcase />
         <SeasonalOffers />
         <WhyChoose />
         <Process />

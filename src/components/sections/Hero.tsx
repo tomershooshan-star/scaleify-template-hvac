@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Phone, Star, ShieldCheck, Clock, ArrowUpRight, Sparkles } from "lucide-react";
+import { Phone, Star, ShieldCheck, Clock, ArrowUpRight, Sparkles, Play } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { site } from "@/config/site";
 
@@ -13,32 +13,36 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden pt-[104px] pb-12 lg:pt-[120px] lg:pb-20">
       <div className="container-x">
-        {/* Signature rounded poster — editorial + warm */}
-        <div className="relative overflow-hidden rounded-[40px] bg-brand-charcoal text-brand-cream min-h-[82vh] lg:min-h-[76vh]">
-          {/* Full-bleed hero image */}
+        {/* Signature rounded poster — Arkdin-style with floating tech PNG on right */}
+        <div className="relative overflow-hidden rounded-[40px] bg-brand-charcoal text-brand-cream min-h-[86vh]">
+          {/* Full-bleed hero background */}
           <div className="absolute inset-0">
             <img
-              src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=2400&q=85"
+              src="/images/hero/hero_bg_1.jpg"
               alt=""
               className="h-full w-full object-cover object-center"
               loading="eager"
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).src =
+                  "https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=2400&q=85";
+              }}
             />
-            {/* Warm left-to-right gradient — HVAC-specific (warm overlay vs plumber's cold blue) */}
+            {/* Strong left-gradient so headline reads + right side shows the photo + PNG */}
             <div
               aria-hidden
               className="absolute inset-0"
               style={{
                 background:
-                  "linear-gradient(100deg, rgba(14,17,22,0.94) 0%, rgba(14,17,22,0.82) 30%, rgba(14,17,22,0.35) 65%, rgba(14,17,22,0) 90%)",
+                  "linear-gradient(100deg, rgba(14,17,22,0.95) 0%, rgba(14,17,22,0.82) 28%, rgba(14,17,22,0.35) 60%, rgba(14,17,22,0.15) 100%)",
               }}
             />
-            {/* Warm orange glow bottom-right */}
+            {/* Warm orange heat-pulse glow */}
             <div
               aria-hidden
               className="absolute -bottom-48 -right-40 h-[44rem] w-[44rem] rounded-full opacity-40 blur-3xl animate-heat-pulse"
               style={{ background: "radial-gradient(circle, #FF5A1F 0%, transparent 65%)" }}
             />
-            {/* Film grain */}
+            {/* Grain */}
             <div
               aria-hidden
               className="absolute inset-0 opacity-[0.08] mix-blend-overlay"
@@ -49,7 +53,21 @@ export function Hero() {
             />
           </div>
 
-          <div className="relative flex h-full min-h-[82vh] flex-col justify-center px-7 py-16 sm:px-12 lg:min-h-[76vh] lg:px-16">
+          {/* Floating tech PNG right — Arkdin signature */}
+          <img
+            src="/images/hero/hero_img_1.png"
+            alt=""
+            aria-hidden
+            className="pointer-events-none absolute bottom-0 right-0 hidden h-[92%] w-auto object-contain object-bottom-right drop-shadow-2xl lg:block"
+            style={{
+              opacity: mounted ? 1 : 0,
+              transform: mounted ? "translateX(0)" : "translateX(60px)",
+              transition: "all 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s",
+            }}
+            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+          />
+
+          <div className="relative flex min-h-[86vh] flex-col justify-center px-7 py-16 sm:px-12 lg:px-16">
             <div
               className="max-w-2xl transition-all duration-700"
               style={{
@@ -85,9 +103,18 @@ export function Hero() {
                     {site.hero.secondaryCta.label}
                   </a>
                 </Button>
+                {/* Watch-our-story play button — Arkdin signature */}
+                <a
+                  href="#projects"
+                  className="group ml-2 hidden items-center gap-3 font-grotesk text-sm font-semibold text-brand-cream/80 transition hover:text-brand-cream sm:inline-flex"
+                >
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full border border-brand-cream/25 transition group-hover:border-brand-orange group-hover:bg-brand-orange/15">
+                    <Play className="ml-0.5 h-4 w-4 fill-brand-cream" strokeWidth={0} />
+                  </span>
+                  Watch Our Work
+                </a>
               </div>
 
-              {/* Deal chip overlay — signature Heatfix */}
               <div className="mt-10 inline-flex items-center gap-2 rounded-full border border-brand-orange/40 bg-brand-orange/15 px-4 py-2 backdrop-blur-sm">
                 <Sparkles className="h-3.5 w-3.5 text-brand-orange" />
                 <span className="font-grotesk text-xs font-semibold uppercase tracking-[0.15em] text-brand-cream">
@@ -96,9 +123,9 @@ export function Hero() {
               </div>
             </div>
 
-            {/* Floating review card — HVAC signature */}
+            {/* Floating review card */}
             <div
-              className="absolute bottom-6 right-6 hidden rounded-2xl border border-brand-cream/10 bg-brand-charcoal/70 p-4 backdrop-blur-md md:block"
+              className="absolute bottom-6 left-6 hidden rounded-2xl border border-brand-cream/10 bg-brand-charcoal/70 p-4 backdrop-blur-md md:block"
               style={{
                 opacity: mounted ? 1 : 0,
                 transform: mounted ? "translateY(0)" : "translateY(20px)",

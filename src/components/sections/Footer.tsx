@@ -28,6 +28,7 @@ export function Footer() {
 
         <Col title="Explore" links={[
           { label: "Services", href: "#services" },
+          { label: "Projects", href: "#projects" },
           { label: "Offers", href: "#offers" },
           { label: "Why Us", href: "#why" },
           { label: "Reviews", href: "#reviews" },
